@@ -59,6 +59,13 @@ fn get_neighbors_from_board_with_different_stuff() {
 }
 
 #[test]
+fn get_neighbors_from_edge_of_board() {
+    let mut board = Board::new();
+    board.set_alive(1,0);
+    assert_eq!(board.get_neighbors(0,0),[false, false, false, false, true, false, false, false])
+}
+
+#[test]
 fn get_neighbors_from_board_with_all_neighbors() {
     let mut board = Board::new();
     board.set_alive(10,10);
