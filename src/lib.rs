@@ -35,10 +35,18 @@ impl Board{
     pub fn is_alive(&self, x:i32, y:i32) -> bool {
         return self.stuff.contains(&[x,y]);
     }
-    pub fn get_neighbors(&self, _x:i32, _y:i32) -> [bool;8]{
-        return [self.is_alive(0,0),
-            self.is_alive(1,0),
-            false,false,false,false,false,false];
+    pub fn get_neighbors(&self, x:i32, y:i32) -> [bool;8]{
+        return [
+            self.is_alive(x - 1,y - 1),
+            self.is_alive(x + 0,y - 1),
+            self.is_alive(x + 1,y - 1),
+            self.is_alive(x - 1,y + 0),
+            //self.is_alive(x + 0,y + 0),
+            self.is_alive(x + 1,y + 0),
+            self.is_alive(x - 1,y + 1),
+            self.is_alive(x + 0,y + 1),
+            self.is_alive(x + 1,y + 1),
+            ];
     }
 
     pub fn set_alive(&mut self, x:i32, y:i32) {
