@@ -52,4 +52,15 @@ impl Board{
     pub fn set_alive(&mut self, x:i32, y:i32) {
        self.stuff.push([x,y]);
     }
+
+    pub fn to_string(&self, width: i32, height:i32)->String {
+        let mut out = "".to_string();
+        for y in 0..height {
+            out = out + "\n";
+           for x in 0..width {
+               out = out + if self.is_alive(x,y){"x"}else{"_"};
+           }
+        }
+        return out;
+    }
 }

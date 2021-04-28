@@ -79,3 +79,17 @@ fn get_neighbors_from_board_with_all_neighbors() {
     board.set_alive(12,12);
     assert_eq!([true,true,true,true,true,true,true,true], board.get_neighbors(11,11))
 }
+
+#[test]
+fn print_board() {
+    let mut board = Board::new();
+    board.set_alive(1,1);
+    board.set_alive(2,1);
+    board.set_alive(3,1);
+
+    let expected = "
+____
+_xxx
+____";
+    assert_eq!(board.to_string(4,3), expected);
+}
